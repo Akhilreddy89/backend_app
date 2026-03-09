@@ -26,11 +26,16 @@ app.use("/", storeRouter);
 // app.use("/auth", authRouter);
 // app.use("/products", productRouter);
 // app.use("/users", userRouter);
-
+const PORT = process.env.PORT || 5000
 const startServer =async ()=>{
-   await dbConnect();
-   app.listen(3001, () => {
-    console.log("Server Started");
-  });
+   try {
+     await mongoose.connect(process.env.MONGO_URI);
+     app.listen(PORT, () => {
+      console.log("Server Started");
+    });
+   } catch (err) {
+     console.log("Server Error:", err.message);
+     process.exit(1);
+   }
 };
 startServer();
