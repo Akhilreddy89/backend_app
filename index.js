@@ -25,14 +25,14 @@ app.use(
 
 app.use("/", storeRouter);
 // app.use("/auth", authRouter);
-// app.use("/products", productRouter);
-// app.use("/users", userRouter);
-
+app.use("/products", productRouter);
+app.use("/users", userRouter);
+const PORT = process.env.PORT || 5000;
 const startServer =async ()=>{
    try {
      await mongoose.connect(process.env.MONGO_URI);
      app.listen(PORT, () => {
-      console.log("Server Started");
+      console.log(`Server Started on Port ${PORT}`);
     });
    } catch (err) {
      console.log("Server Error:", err.message);
