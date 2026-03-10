@@ -13,5 +13,6 @@ const productSchema=mongoose.Schema({
     price:{type:Number,required:true},
     imageurl:{type:String,required:true},
 })
-const productModel=mongoose.model("products",productSchema)
+const productModel=mongoose.model("products",productSchema);
+
 export default productModel;

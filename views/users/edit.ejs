@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Edit User</h2>
+    <form action="/users/<%= user._id %>/save" method="post">
+        <p><input type="text" name="name" value="<%= user.name %>" /></p>
+        <p><input type="email" name="email" value="<%= user.email %>" /></p>
+        <p><input type="password" name="password" placeholder="<%= user.password  %>" /></p>
+        <select name="role">
+            <option value="user" <%= user.role === 'user' ? 'selected' : '' %>>User</option>
+            <option value="admin" <%= user.role === 'admin' ? 'selected' : '' %>>Admin</option>
+        </select>
+        <button type="submit">Update User</button>
+    </form>
+</body>
+</html>
