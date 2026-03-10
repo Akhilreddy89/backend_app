@@ -25,9 +25,9 @@ app.use(
 
 app.use("/", storeRouter);
 // app.use("/auth", authRouter);
-app.use("/products", productRouter);
-app.use("/users", userRouter);
-const PORT = process.env.PORT || 5000
+// app.use("/products", productRouter);
+// app.use("/users", userRouter);
+
 const startServer =async ()=>{
    try {
      await mongoose.connect(process.env.MONGO_URI);
